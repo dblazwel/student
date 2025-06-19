@@ -22,14 +22,14 @@ viz = plot_structure(
     all_node_attributes=NODE_STYLE.WEAK,
     all_edge_attributes=EDGE_STYLE.WEAK,
 )
-viz.show("01_simple_plot.html")
 # El problema sigue siendo causado por el intento de viz.show() de escribir el archivo HTML con caracteres que no puede codificar debido a la codificación predeterminada de Windows (cp1252).
 from pyvis.network import Network
 def safe_write_html(self, path, **kwargs):
     with open(path, "w", encoding="utf-8") as f:
         f.write(self.html)
+
 Network.write_html = safe_write_html
-viz.show("simple_structure_model1.html")
+viz.show("simple_structure_model.html")
 
 # Load the dataset
 # The dataset is available at https://archive.ics.uci.edu/ml/datasets/Student
